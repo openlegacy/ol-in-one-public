@@ -28,6 +28,47 @@ Once running the docker image:
 * The OpenLegacy No Code API is exposed under `http://localhost:8090`.
 * You can access its OpenAPI page under `http://localhost:8080/openapi`
 
+## Testing the API Endpoints
+
+The API endpoints exposed under `http://localhost:8080` using the provided JSON payloads in the `payloads/` directory. The API has two `POST` endpoints: `gactcs6x` and `oactcs6x`.
+
+### Prerequisites
+
+1. Ensure the API is running and accessible at `http://localhost:8080`.
+2. Install `curl` or any API testing tool (e.g., Postman).
+3. Clone this repository and navigate to the directory containing the payloads:
+   ```bash
+   git clone https://github.com/<your-username>/ol-in-one-public.git
+   cd ol-in-one-public/payloads
+---
+### Endpoints Overview
+
+| Endpoint | HTTP Method |	Description |
+|----------|-------------|--------------| 
+| /gactcs6x| POST | Accepts a JSON payload for gactcs6x |
+| /oactcs6x| POST| Accepts a JSON payload for oactcs6x.|
+
+**Expected Response:** An HTTP 200 OK response with a JSON payload containing the result.
+
+#### Testing with curl 
+```
+# Calling gactcs6x
+curl -X POST \
+  http://localhost:8080/gactcs6x \
+  -H "Content-Type: application/json" \
+  -d @gactcs6x.json
+# Calling oactcs6x
+curl -X POST \
+  http://localhost:8080/oactcs6x \
+  -H "Content-Type: application/json" \
+  -d @oactcs6x.json  
+```
+
+### Notes
+Ensure the payloads are properly formatted and aligned with the OpenAPI spec.
+
+If you have any issues or questions, please open an issue in the repository.
+
 ---
 Going forward with this example:
     
