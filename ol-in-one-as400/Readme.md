@@ -7,7 +7,6 @@ This project demonstrates how to expose IBM i PCML files as APIs using OpenLegac
 ## Initial Example
 
 ```
-# Running it with the provided example
 docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/usr/app/sources --name ol-n1-pcml openlegacy/as400-api:3.0.2.2
 ```
 
@@ -26,15 +25,15 @@ Inside the sources directory, we have the IBMi Demo PCML files
 Once running the docker image:
 * The OpenLegacy Hub is exposed under `http://localhost:8080`. More information regarding the OpenLegacy Hub is available here: [![OpenLegacy Docs](https://img.shields.io/badge/OpenLegacy-Docs-orange.svg)](https://docs.ol-hub.com)
 * The OpenLegacy No Code API is exposed under `http://localhost:8090`.
-* You can access its OpenAPI page under `http://localhost:8080/openapi`
+* You can access its OpenAPI page under `http://localhost:8090/openapi`
 
 ## Testing the API Endpoints
 
-The API endpoints exposed under `http://localhost:8080` using the provided JSON payloads in the `payloads/` directory. The API has two `POST` endpoints: `gactcs6x` and `oactcs6x`.
+The API endpoints exposed under `http://localhost:8090` using the provided JSON payloads in the `payloads/` directory. The API has two `POST` endpoints: `gactcs6x` and `oactcs6x`.
 
 ### Prerequisites
 
-1. Ensure the API is running and accessible at `http://localhost:8080`.
+1. Ensure the API is running and accessible at `http://localhost:8090`.
 2. Install `curl` or any API testing tool (e.g., Postman).
 3. Clone this repository and navigate to the directory containing the payloads:
    ```bash
@@ -54,12 +53,12 @@ The API endpoints exposed under `http://localhost:8080` using the provided JSON 
 ```
 # Calling gactcs6x
 curl -X POST \
-  http://localhost:8080/gactcs6x \
+  http://localhost:8090/gactcs6x \
   -H "Content-Type: application/json" \
   -d @gactcs6x.json
 # Calling oactcs6x
 curl -X POST \
-  http://localhost:8080/oactcs6x \
+  http://localhost:8090/oactcs6x \
   -H "Content-Type: application/json" \
   -d @oactcs6x.json  
 ```
