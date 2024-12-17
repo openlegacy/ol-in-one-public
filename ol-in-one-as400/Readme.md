@@ -6,8 +6,17 @@ This project demonstrates how to expose IBM i PCML files as APIs using OpenLegac
 
 ## Initial Example
 
+For unix
 ```
 docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/usr/app/sources --name ol-n1-pcml openlegacy/as400-api:3.0.2.2
+```
+For Windows Bash
+```
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v /$(pwd)/sources:/usr/app/sources --name ol-n1-pcml openlegacy/as400-api:3.0.2.2
+```
+For Windows PowerShell
+```
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v .\sources:/usr/app/sources --name ol-n1-pcml openlegacy/as400-api:3.0.2.2
 ```
 
 Example values in the .env files are:
