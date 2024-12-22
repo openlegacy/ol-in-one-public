@@ -1,6 +1,6 @@
 # OpenLegacy-in-One Solutions Repository
 
-Welcome to the **OpenLegacy-in-One Solutions Repository**! This repository is a central hub for commands, examples, and instructions to call and interact with OpenLegacy-in-One solutions. Each solution is organized into its dedicated directory for easy navigation.
+Welcome to the OpenLegacy-in-One Solutions Repository! This repository is a central hub for commands, examples, and instructions for calling and interacting with OpenLegacy-in-One solutions. Each solution is organized into its dedicated directory for easy navigation.
 
 ## Repository Structure
 
@@ -8,6 +8,9 @@ The repository is organized as follows:
 
 - **`ol-in-one-as400/`**  
   Directory containing commands and documentation for the AS400 solution.
+  
+- **`ol-in-one-db2-zos/`**  
+  Directory containing commands and documentation for the DB2 z/OS solution.  
   
 - Upcoming **`ol-in-one-ctg/`**  
   Directory containing commands and documentation for the CICS Transaction Gateway (CTG) solution.
