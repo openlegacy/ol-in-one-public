@@ -8,7 +8,7 @@ This project demonstrates how to expose IBM DB2 z/OS SQL as APIs using OpenLegac
 
 For unix
 ```
-docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/usr/app/sources v ./db2jars:/home/ubuntu/lib --name ol-n1-db2zos openlegacy/db2-zos-api:3.0.2.2
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/usr/app/sources -v ./db2jars:/home/ubuntu/lib --name ol-n1-db2zos openlegacy/db2-zos-api:3.0.2.2
 ```
 For Windows Bash
 ```
