@@ -108,6 +108,13 @@ Going forward with this example:
   docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/usr/app/sources v ./db2jars:/home/ubuntu/lib --name ol-n1-db2zos openlegacy/db2-zos-api:3.0.2.2
   ```
 
+Adding more sources
+
+- Add your sources to the sources directory mentioned above and run the following command:
+  ```
+  docker exec --user ubuntu --privileged ol-n1-db2 bash -c "/home/ubuntu/add-more.sh"
+  ```
+
 ---
 
 ## Troubleshooting
