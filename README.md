@@ -11,6 +11,9 @@ The repository is organized as follows:
   
 - **`ol-in-one-db2-zos/`**  
   Directory containing commands and documentation for the DB2 z/OS solution.  
+
+- **`ol-in-one-reverse-api-rest/`**  
+  Directory containing commands and documentation for the Reverse API solution.
   
 - Upcoming **`ol-in-one-ctg/`**  
   Directory containing commands and documentation for the CICS Transaction Gateway (CTG) solution.
