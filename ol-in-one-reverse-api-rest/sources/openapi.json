@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Banking Demo",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.api-ninjas.com/v1",
+      "description": "Banking Demo"
+    }
+  ],
+  "paths": {
+    "/iban": {
+      "get": {
+        "summary": "The IBAN API allows you to look up and validate any International Bank Account Number (IBAN).",
+        "operationId": "IBAN",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "description": "API Key associated with your account.",
+            "schema": {
+              "type": "string",
+              "nullable": false
+            }
+          },
+          {
+            "name": "iban",
+            "in": "query",
+            "required": true,
+            "description": "The IBAN to look up.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns detailed information on a given IBAN.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IBANResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/swiftcode": {
+      "get": {
+        "summary": "The SWIFT Code API allows you to find the SWIFT Code(s) for any bank in the world. Our database contains hundreds of thousands of different bank branches and on file.",
+        "operationId": "swiftcode",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "description": "API Key associated with your account.",
+            "schema": {
+              "type": "string",
+              "nullable": false
+            }
+          },
+          {
+            "name": "bank",
+            "in": "query",
+            "description": "The name of the bank to look up. This parameter supports partial matching (e.g., Silicon Valley will match Silicon Valley Bank).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "swift",
+            "in": "query",
+            "description": "The SWIFT Code of the bank to look up.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Name of the city in which the bank is located.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "ISO 3166 2-letter country code of the bank's country.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of bank information (including SWIFT Code) that match the input parameter. Returns at most 100 results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SwiftResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/salestax": {
+      "get": {
+        "summary": "The Sales Tax API provides accurate and detailed sales tax breakdowns for every ZIP code, city, and state in the United States.",
+        "operationId": "salestax",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "description": "API Key associated with your account.",
+            "schema": {
+              "type": "string",
+              "nullable": false
+            }
+          },
+          {
+            "name": "zip-code",
+            "in": "query",
+            "description": "Valid US ZIP code.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "City Name.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "State Name.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns one or more sales tax breakdowns by ZIP code according to the specified parameters. Each breakdown includes the state sales tax (if any), county sales tax (if any), city sales tax (if any), and any additional special sales taxes. All tax values are presented in decimals (e.g. 0.1 means 10% tax).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SalesTaxResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inflation": {
+      "get": {
+        "summary": "The Interest Rate API provides current central bank interest rates for over 2 dozen countries, all major benchmark interest rates (such as LIBOR, EURIBOR, and SOFR), and prime rates. Interest rates are refreshed every 4 hours to ensure up-to-date information. Looking for historical interest rate data? Use the /v1/interestratehistorical endpoint.",
+        "operationId": "inflation",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "description": "API Key associated with your account.",
+            "schema": {
+              "type": "string",
+              "nullable": false
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Inflation indicator type. Can be either CPI (Consumer Price Index) or HICP (Harmonized Index of Consumer Prices). If not provided, the CPI will be used by default.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "description": "Name of country (case-insensitive).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns current monthly and annual inflation percentages.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InflationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IBANResponse": {
+        "type": "object",
+        "properties": {
+          "iban": {
+            "type": "string",
+            "example": "DE16200700000532013000"
+          },
+          "bank_name": {
+            "type": "string",
+            "example": "Deutsche Bank"
+          },
+          "account_number": {
+            "type": "string",
+            "example": 532013000
+          },
+          "bank_code": {
+            "type": "string",
+            "example": 20070000
+          },
+          "country": {
+            "type": "string",
+            "example": "DE"
+          },
+          "checksum": {
+            "type": "string",
+            "example": 16
+          },
+          "valid": {
+            "type": "boolean"
+          },
+          "bban": {
+            "type": "string",
+            "example": 200700000532013000
+          }
+        }
+      },
+      "SwiftResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "bank_name": {
+              "type": "string",
+              "description": "Name of the bank",
+              "example": "Spd Silicon Valley Bank Co. Ltd"
+            },
+            "city": {
+              "type": "string",
+              "description": "City where the bank is located",
+              "example": "Shanghai"
+            },
+            "country": {
+              "type": "string",
+              "description": "Country where the bank is located",
+              "example": "China"
+            },
+            "country_code": {
+              "type": "string",
+              "description": "ISO 3166-1 alpha-2 country code",
+              "example": "CN"
+            },
+            "swift_code": {
+              "type": "string",
+              "description": "The SWIFT code of the bank",
+              "example": "SSVBCNSH"
+            }
+          }
+        }
+      },
+      "SalesTaxResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "zip_code": {
+              "type": "string",
+              "description": "ZIP code for the tax rates",
+              "example": 90210
+            },
+            "total_rate": {
+              "type": "string",
+              "description": "The total tax rate",
+              "example": "0.102500"
+            },
+            "state_rate": {
+              "type": "string",
+              "description": "The state tax rate",
+              "example": "0.060000"
+            },
+            "city_rate": {
+              "type": "string",
+              "description": "The city tax rate",
+              "example": "0.007500"
+            },
+            "county_rate": {
+              "type": "string",
+              "description": "The county tax rate",
+              "example": "0.002500"
+            },
+            "additional_rate": {
+              "type": "string",
+              "description": "Any additional tax rate",
+              "example": "0.032500"
+            }
+          }
+        }
+      },
+      "InflationResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "country": {
+              "type": "string",
+              "description": "Name of the country",
+              "example": "Canada"
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of economic indicator",
+              "example": "CPI"
+            },
+            "period": {
+              "type": "string",
+              "description": "Period of the economic indicator",
+              "example": "Oct 2023"
+            },
+            "monthly_rate_pct": {
+              "type": "number",
+              "format": "float",
+              "description": "Monthly rate percentage",
+              "example": 0.06
+            },
+            "yearly_rate_pct": {
+              "type": "number",
+              "format": "float",
+              "description": "Yearly rate percentage",
+              "example": 3.12
+            }
+          }
+        }
+      }
+    }
+  }
+}
