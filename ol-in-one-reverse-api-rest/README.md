@@ -28,6 +28,15 @@ CLIENT_TYPE=MF_CICS_COBOL
 HUB_LOGGING_LEVEL=error
 ```
 Inside the sources directory, we have the OpenAPI Spec file.
+The OpenAPI spec we are using is based on the following endpoints:
+* https://api-ninjas.com/api/iban
+* https://api-ninjas.com/api/inflation
+* https://api-ninjas.com/api/salestax
+* https://api-ninjas.com/api/swiftcode
+To use these endpoints you need to have an API Key
+https://api-ninjas.com/tos
+Or use this limited one:
+`pxCFvZ0E4qAUvEgPMHT3Ug==GoWUgVAJ7H6D0RmB`
 
 
 Once running the docker image:
