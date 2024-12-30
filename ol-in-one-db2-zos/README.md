@@ -50,8 +50,9 @@ The API endpoints exposed under `http://localhost:8090` using the provided JSON 
 2. Install `curl` or any API testing tool (e.g., Postman).
 3. Clone this repository and navigate to the directory containing the payloads:
    ```bash
-   git clone https://github.com/<your-username>/ol-in-one-public.git
-   cd ol-in-one-public/payloads
+   git clone https://github.com/openlegacy/ol-in-one-public.git
+   cd ol-in-one-public/ol-in-one-db2-zos/payloads
+   ```
 ---
 ### Endpoints Overview
 
