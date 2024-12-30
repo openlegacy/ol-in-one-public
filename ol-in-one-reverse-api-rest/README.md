@@ -33,11 +33,9 @@ The OpenAPI spec we are using is based on the following endpoints:
 * https://api-ninjas.com/api/inflation
 * https://api-ninjas.com/api/salestax
 * https://api-ninjas.com/api/swiftcode
-To use these endpoints you need to have an API Key
-https://api-ninjas.com/tos
-Or use this limited one:
-`pxCFvZ0E4qAUvEgPMHT3Ug==GoWUgVAJ7H6D0RmB`
 
+To use these endpoints you need to have an API Key
+[API Ninja](https://api-ninjas.com/tos)
 
 Once running the docker image:
 * The OpenLegacy Hub is exposed under `http://localhost:8080`. More information regarding the OpenLegacy Hub is available here: [![OpenLegacy Docs](https://img.shields.io/badge/OpenLegacy-Docs-orange.svg)](https://docs.ol-hub.com)
