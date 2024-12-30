@@ -15,7 +15,7 @@ The repository is organized as follows:
 - **`ol-in-one-reverse-api-rest/`**  
   Directory containing commands and documentation for the Reverse API solution.
   
-- Upcoming **`ol-in-one-ctg/`**  
+- **`ol-in-one-ctg/`**  
   Directory containing commands and documentation for the CICS Transaction Gateway (CTG) solution.
 
 - Upcoming **`ol-in-one-oracle/`**  
