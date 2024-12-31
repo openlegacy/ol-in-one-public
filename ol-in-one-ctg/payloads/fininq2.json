@@ -1,0 +1,13 @@
+{
+  "dfhcommarea": {
+    "custId": "1000",
+    "creditCards": [
+      {
+        "cardNumber": "",
+        "cardType": "",
+        "cardLimit": 0,
+        "cardUsage":0
+      }
+    ]
+  }
+}
