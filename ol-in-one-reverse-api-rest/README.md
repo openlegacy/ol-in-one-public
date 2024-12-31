@@ -10,15 +10,15 @@ It includes a Dockerized solution for quick deployment and testing.
 
 For unix
 ```
-docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:3.0.2.2
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v ./sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:latest
 ```
 For Windows Bash
 ```
-docker run --env-file .env -p 8080:8080 -p 8090:8090 -v /$(pwd)/sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:3.0.2.2
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v /$(pwd)/sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:latest
 ```
 For Windows PowerShell
 ```
-docker run --env-file .env -p 8080:8080 -p 8090:8090 -v .\sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:3.0.2.2
+docker run --env-file .env -p 8080:8080 -p 8090:8090 -v .\sources:/home/ubuntu/sources --name ol-n1-reverse-api-rest openlegacy/reverse-api-rest:latest
 ```
 
 Example values in the .env files are:
