@@ -74,7 +74,7 @@ curl -X 'POST' \
   'http://localhost:8090/fininq2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
-  -d @fininq.json
+  -d @fininq2.json
   
 # Calling lactcs9
 curl -X 'POST' \
